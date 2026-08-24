@@ -5,4 +5,4 @@
 - [x] Build CLI commands for parse, validate, render, example discovery, and output formats.
 - [x] Write grammar documentation and examples for linear flow, conditions, labelled YES/NO branches, and engineering notes.
 - [x] Add Linux/Windows launchers, configurable localhost example hosting, and automated parsing/rendering tests.
-- [ ] Validate the app, create a private GitHub repository, and push the completed project.
+- [x] Validate the app, create a private GitHub repository, and push the completed project.
