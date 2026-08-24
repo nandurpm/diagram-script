@@ -1,0 +1,7 @@
+# A simple engineering decision tree
+START
+  -> READ voltage
+  -> CHECK voltage > 240
+  -> YES: WARNING
+  -> NO: NORMAL
+END

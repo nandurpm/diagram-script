@@ -1,0 +1,6 @@
+START
+  -> READ control state
+  -> CHECK interlock active
+  -> YES: RECORD INTERLOCK
+  -> NO: CONTINUE REVIEW
+END
