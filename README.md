@@ -49,3 +49,9 @@ Tests cover valid parsing, YES/NO branches, labels, invalid syntax, AST output, 
 ## License
 
 MIT.
+
+## Live Render Demo
+
+A responsive, synthetic/demo report is available at [https://diagram-script.onrender.com](https://diagram-script.onrender.com). The hosted view is read-only and preserves the repository's documented local-first boundaries.
+
+<!-- render-live-url:https://diagram-script.onrender.com -->
