@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/*
+ * ============================================================
+ * FILE: cli.mjs
+ * PURPOSE: Implements Diagram Script's command-line interface and coordinates validation, persistence, report generation, and local serving.
+ * ============================================================
+ */
+
 import { readFile,writeFile,mkdir } from "node:fs/promises";import { createReadStream,existsSync } from "node:fs";import { createServer } from "node:http";import { basename,resolve,dirname } from "node:path";import { astJson,parse } from "./language.mjs";import { renderHtml,renderMermaid,renderSvg } from "./render.mjs";
 const usage=`Diagram Script — offline technical flowchart DSL\n\nUsage:\n  diagram-script parse <file.diagram>\n  diagram-script validate <file.diagram>\n  diagram-script render <file.diagram> --format svg|html|mermaid --out <output-file>\n  diagram-script serve <html-file-or-directory> [--port 4075]`;
 function parseArgs(args){const values=new Map(),positional=[];for(let i=0;i<args.length;i+=1){const token=args[i];if(!token.startsWith('--')){positional.push(token);continue}const[key,inline]=token.split('=',2);values.set(key,inline??args[++i])}return{values,positional}}const print=value=>process.stdout.write(`${JSON.stringify(value,null,2)}\n`);

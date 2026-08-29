@@ -94,3 +94,21 @@ The same Node.js commands work in Windows PowerShell, Windows Command Prompt, an
 
 This project follows its existing local-first and read-only boundaries. Demo/report content is generated or supplied through the documented local workflow; a hosted page does not provide hidden access to your device, private files, hardware, accounts, or network.
 
+## Project structure
+
+| Path | Responsibility |
+|---|---|
+| [`examples/`](examples/README.md) | Contains small, reviewable example inputs that demonstrate Diagram Script's supported syntax and workflows. |
+| [`notes/`](notes/README.md) | Contains design verification notes and screenshots that support maintainers but are not loaded by the application at runtime. |
+| [`src/`](src/README.md) | Contains the production implementation of Diagram Script: command handling, domain rules, storage, reports, and local serving as applicable. |
+| [`tests/`](tests/README.md) | Contains automated regression tests for Diagram Script's public behavior and important safety constraints. |
+
+Important root files include `package.json` for supported commands, `run-local.sh` and `run-local.cmd` where present for platform launchers, and this README as the primary developer entry point.
+
+## Documentation map
+
+- [`examples/README.md`](examples/README.md) — Contains small, reviewable example inputs that demonstrate Diagram Script's supported syntax and workflows.
+- [`notes/README.md`](notes/README.md) — Contains design verification notes and screenshots that support maintainers but are not loaded by the application at runtime.
+- [`src/README.md`](src/README.md) — Contains the production implementation of Diagram Script: command handling, domain rules, storage, reports, and local serving as applicable.
+- [`tests/README.md`](tests/README.md) — Contains automated regression tests for Diagram Script's public behavior and important safety constraints.
+

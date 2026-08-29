@@ -1,3 +1,10 @@
+/*
+ * ============================================================
+ * FILE: render-host.mjs
+ * PURPOSE: Hosts generated Diagram Script diagrams locally and serves only the requested report assets.
+ * ============================================================
+ */
+
 import { spawn } from 'node:child_process';
 import { createReadStream } from 'node:fs';
 import { access, readdir, readFile } from 'node:fs/promises';

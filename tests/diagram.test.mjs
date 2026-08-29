@@ -1,3 +1,10 @@
+/*
+ * ============================================================
+ * FILE: diagram.test.mjs
+ * PURPOSE: Exercises Diagram Script's domain behavior, validation, persistence, reporting, and safety boundaries with the Node.js test runner.
+ * ============================================================
+ */
+
 import assert from "node:assert/strict";import test from "node:test";import { DiagramSyntaxError,astJson,parse } from "../src/language.mjs";import { renderHtml,renderMermaid,renderSvg } from "../src/render.mjs";
 const simple=`START\n  -> READ voltage\n  -> CHECK voltage > 240\n  -> YES: WARNING\n  -> NO: NORMAL\nEND`;
 test('parses valid technical flow into AST',()=>{const ast=parse(simple);assert.equal(ast.type,'Diagram');assert.equal(ast.nodes[1].type,'read');assert.equal(ast.nodes[2].type,'check');assert.equal(ast.nodes[2].edges.length,2);});

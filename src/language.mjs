@@ -1,3 +1,10 @@
+/*
+ * ============================================================
+ * FILE: language.mjs
+ * PURPOSE: Tokenizes and parses Diagram Script's diagram language into a validated intermediate representation.
+ * ============================================================
+ */
+
 const text=value=>String(value??"").trim();
 export class DiagramSyntaxError extends Error{constructor(message,line,column=1){super(`${message} at line ${line}, column ${column}.`);this.name="DiagramSyntaxError";this.line=line;this.column=column;}}
 export function lex(source){if(typeof source!=="string")throw new TypeError("Diagram source must be text.");return source.replace(/\r\n?/g,"\n").split("\n").map((raw,index)=>{const line=index+1,withoutComment=raw.replace(/\s*(#|\/\/).*$/,""),content=withoutComment.trim();if(!content)return{kind:"blank",line,column:1,raw};if(content==="START"||content==="END")return{kind:content.toLowerCase(),line,column:raw.indexOf(content)+1,raw};const arrow=/^->\s+(.+)$/.exec(content);if(!arrow)throw new DiagramSyntaxError("Expected START, END, or an indented -> statement",line,raw.search(/\S/)+1);const body=arrow[1].trim(),column=raw.indexOf("->")+1;const command=/^(READ|CHECK)\s+(.+)$/i.exec(body);if(command)return{kind:command[1].toLowerCase(),value:command[2].trim(),line,column,raw};const branch=/^([A-Za-z][A-Za-z0-9 _-]*):\s*(.+)$/.exec(body);if(branch)return{kind:"branch",label:branch[1].trim(),value:branch[2].trim(),line,column,raw};return{kind:"operation",value:body,line,column,raw};});}

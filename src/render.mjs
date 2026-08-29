@@ -1,3 +1,10 @@
+/*
+ * ============================================================
+ * FILE: render.mjs
+ * PURPOSE: Generates and serves Diagram Script's demonstration report through a deployment-friendly HTTP host.
+ * ============================================================
+ */
+
 import { validate } from "./language.mjs";
 const esc=value=>String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[char]));
 const nodeColor=type=>({start:"#dbeee4",end:"#f5dedb",check:"#fff1c9",read:"#dce9fb",operation:"#e8eff2",outcome:"#e7f4f0"}[type]??"#eef3f4");
